@@ -27,7 +27,7 @@ typedef void (*show_pad_smaps_fn)	(struct seq_file *m, void *v);
 
 #ifdef CONFIG_64BIT
 #if PAGE_SIZE == SZ_4K
-DEFINE_STATIC_KEY_TRUE(pgsize_migration_enabled);
+DEFINE_STATIC_KEY_FALSE(pgsize_migration_enabled); // changed from DEFINE_STATIC_KEY_TRUE to _FALSE
 
 #define is_pgsize_migration_enabled() 	(static_branch_likely(&pgsize_migration_enabled))
 #else /* PAGE_SIZE != SZ_4K */
